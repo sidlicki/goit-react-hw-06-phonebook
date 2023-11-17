@@ -2,15 +2,10 @@ import css from './ContactForm.module.css';
 import { useState } from 'react';
 
 export const ContactForm = ({ handleAddContact }) => {
-  // state = {
-  //   name: '',
-  //   number: '',
-  // };
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const handleChange = evt => {
-    // this.setState({ [evt.target.name]: evt.target.value });
     if (evt.target.name === 'name') {
       setName(evt.target.value);
     } else if (evt.target.name === 'number') {
@@ -19,16 +14,11 @@ export const ContactForm = ({ handleAddContact }) => {
   };
 
   const resetForm = () => {
-    // this.setState({ name: '', number: '' });
     setName('');
     setNumber('');
   };
 
   const handleSubmit = evt => {
-    // evt.preventDefault();
-    // const { name, number } = this.state;
-
-    // this.props.handleAddContact(name, number, this.resetForm);
     evt.preventDefault();
     handleAddContact(name, number, resetForm);
   };
