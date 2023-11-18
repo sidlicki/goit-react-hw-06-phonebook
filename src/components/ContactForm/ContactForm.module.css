@@ -3,13 +3,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   width: 100%;
+  gap: 16px;
 }
 .input {
-  width: 100%;
-  max-width: 280px;
-  height: 30px;
+  width: 70%;
+  height: 36px;
   padding: 0 15px 0 15px;
   border-radius: 10px;
   border: none;
@@ -30,25 +29,25 @@
 }
 
 .button {
-  width: 100%;
-  max-width: 180px;
+  width: 40%;
+  min-width: 150px;
   height: 40px;
   padding: 0 15px 0 15px;
   border-radius: 10px;
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: rgb(41, 0, 0);
-  background-color: rgba(10, 85, 151, 0.116);
+  background-color: rgba(12, 74, 128, 0.216);
   cursor: pointer;
   transition: 0.3s ease;
 }
 .button:hover {
-  background-color: rgba(10, 85, 151, 0.305);
+  background-color: rgba(10, 85, 151, 0.405);
   transition: 0.3s ease;
 }
 .button:focus {
-  background-color: rgba(10, 85, 151, 0.305);
+  background-color: rgba(10, 85, 151, 0.405);
   transition: 0.3s ease;
 }

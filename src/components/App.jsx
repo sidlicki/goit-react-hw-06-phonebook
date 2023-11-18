@@ -14,33 +14,3 @@ export const App = () => {
     </div>
   );
 };
-
-// const handleAddContact = (name, number, resetForm) => {
-//   if (
-//     contacts.some(
-//       contact => contact.name.toLowerCase() === name.toLowerCase()
-//     )
-//   ) {
-//     alert(`A contact with the name "${name}" already exists.`);
-//     return;
-//   }
-
-// const newContact = {
-//   name: name,
-//   number: number,
-//   id: nanoid(),
-// };
-
-// const handleDeleteContact = id => {
-//   setContacts(contacts.filter(contact => contact.id !== id));
-// };
-
-// const handleFilterChange = evt => {
-//   setFilter(evt.target.value.toLowerCase());
-// };
-
-// const getFilteredContacts = () => {
-//   return contacts.filter(contact =>
-//     contact.name.toLowerCase().includes(filter)
-//   );
-// };
