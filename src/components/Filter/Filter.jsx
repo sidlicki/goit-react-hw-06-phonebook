@@ -1,13 +1,16 @@
+import { useDispatch } from 'react-redux';
 import css from './Filter.module.css';
+import { filterContacts } from 'redux/contacts/contacts.reducer';
 
-export const Filter = ({ filter, handleFilterChange }) => {
+export const Filter = () => {
+  const dispatch = useDispatch();
+
   return (
     <input
       className={css.input}
       type="text"
       placeholder="Search by name"
-      value={filter}
-      onChange={handleFilterChange}
+      onChange={evt => dispatch(filterContacts(evt.target.value))}
     />
   );
 };
