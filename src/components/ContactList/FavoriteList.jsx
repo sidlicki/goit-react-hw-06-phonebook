@@ -43,13 +43,13 @@ export const FavoriteList = () => {
             </button>
 
             <a className={css.link} href={`tel:${contact.number}`}>
-              <span className={css.contactName}>
+              <span>
                 <b>{contact.name}</b>:
               </span>
-              <span className={css.contactNumber}>{contact.number}:</span>
+              <span>{contact.number}:</span>
             </a>
             <button
-              className={css.button}
+              className={`${css.button} ${css.buttonDelete}`}
               onClick={() => handleDeleteContact(contact.name, contact.id)}
               title={`Delete contact "${contact.name}"`}
             >
