@@ -2,27 +2,20 @@ import React from 'react';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  addToFavorite,
   deleteContact,
   removeFromFavorite,
 } from 'redux/contacts/contacts.reducer';
 import { Notify } from 'notiflix';
 
-export const ContactList = () => {
+export const FavoriteList = () => {
   const dispatch = useDispatch();
-
-  const contacts = useSelector(state => state.contactsStore.contacts);
 
   const filter = useSelector(state => state.contactsStore.filter);
 
   const favorites = useSelector(state => state.contactsStore.favoriteContacts);
 
-  const filteredContacts = contacts.filter(contact =>
+  const filteredContacts = favorites.filter(contact =>
     contact.name.toLowerCase().includes(filter)
-  );
-
-  const filteredAndSortedContacts = [...filteredContacts].sort((a, b) =>
-    a.name.localeCompare(b.name)
   );
 
   const handleDeleteContact = (name, id) => {
@@ -31,42 +24,23 @@ export const ContactList = () => {
     dispatch(removeFromFavorite(id));
   };
 
-  const handleAddFavorite = contact => {
-    dispatch(addToFavorite(contact));
-    Notify.success(`Contact "${contact.name}" added to favorites`);
-  };
-
   const handleRemoveFavorite = contact => {
     dispatch(removeFromFavorite(contact.id));
     Notify.info(`Contact "${contact.name}" removed from favorites`);
   };
 
-  const favOrNo = id => {
-    return favorites.some(contact => contact.id === id);
-  };
-
   return (
     <ul className={css.list}>
-      {filteredAndSortedContacts.length > 0 ? (
-        filteredAndSortedContacts.map(contact => (
+      {filteredContacts.length > 0 ? (
+        filteredContacts.map(contact => (
           <li key={contact.id} className={css.item}>
-            {favOrNo(contact.id) ? (
-              <button
-                className={css.button}
-                onClick={() => handleRemoveFavorite(contact)}
-                title={`Remove favorite "${contact.name}"`}
-              >
-                💙
-              </button>
-            ) : (
-              <button
-                className={css.button}
-                onClick={() => handleAddFavorite(contact)}
-                title={`Add to favorite "${contact.name}"`}
-              >
-                🤍
-              </button>
-            )}
+            <button
+              className={css.button}
+              onClick={() => handleRemoveFavorite(contact)}
+              title={`Remove favorite "${contact.name}"`}
+            >
+              💙
+            </button>
 
             <a className={css.link} href={`tel:${contact.number}`}>
               {contact.name}: {contact.number}
@@ -81,7 +55,7 @@ export const ContactList = () => {
           </li>
         ))
       ) : (
-        <h3 className={css.subtitle}>No contacts found.</h3>
+        <h3 className={css.subtitle}>No favorite contacts.</h3>
       )}
     </ul>
   );

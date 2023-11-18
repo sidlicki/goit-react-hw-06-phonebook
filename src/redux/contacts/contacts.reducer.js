@@ -8,11 +8,25 @@ const exampleConacts = [
   { id: 'id-5', name: 'Emmanuel Macron', number: '+33-1-43-06-07-37' },
   { id: 'id-6', name: 'Sergio Mattarella', number: '+39-06-8200-3641' },
   { id: 'id-7', name: 'Justin Trudeau', number: '+1-613-230-29-61' },
+  { id: 'id-8', name: 'Angela Merkel', number: '+49-30-18-580' },
+  { id: 'id-9', name: 'Xi Jinping 习近平', number: '+86-10-6307-0911' },
+  { id: 'id-10', name: 'Jair Bolsonaro', number: '+55-61-3429-1555' },
+  { id: 'id-11', name: 'Scott Morrison', number: '+61-2-6271-5111' },
+  { id: 'id-12', name: 'Moon Jae-in 문재인', number: '+82-2-730-5800' },
+  {
+    id: 'id-13',
+    name: 'Volodymyr Zelensky',
+    number: '+380-44-256-67-25',
+  },
+  { id: 'id-14', name: 'Macky Sall', number: '+221-33-839-50-50' },
+  { id: 'id-15', name: 'Recep Tayyip Erdoğan', number: '+90-312-417-05-30' },
+  { id: 'id-16', name: 'Jacinda Ardern', number: '+64-4-817-9999' },
 ];
 
 const initialState = {
   contacts: exampleConacts,
   filter: '',
+  favoriteContacts: [],
 };
 
 const contactsSlice = createSlice({
@@ -28,10 +42,23 @@ const contactsSlice = createSlice({
     filterContacts(state, { payload }) {
       state.filter = payload;
     },
+    addToFavorite(state, { payload }) {
+      state.favoriteContacts = [...state.favoriteContacts, payload];
+    },
+    removeFromFavorite(state, { payload }) {
+      state.favoriteContacts = state.favoriteContacts.filter(
+        contact => contact.id !== payload
+      );
+    },
   },
 });
 
-export const { addContact, deleteContact, filterContacts } =
-  contactsSlice.actions;
+export const {
+  addContact,
+  deleteContact,
+  filterContacts,
+  addToFavorite,
+  removeFromFavorite,
+} = contactsSlice.actions;
 
 export const contactsReducer = contactsSlice.reducer;
