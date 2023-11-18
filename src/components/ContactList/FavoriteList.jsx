@@ -43,7 +43,10 @@ export const FavoriteList = () => {
             </button>
 
             <a className={css.link} href={`tel:${contact.number}`}>
-              {contact.name}: {contact.number}
+              <span className={css.contactName}>
+                <b>{contact.name}</b>:
+              </span>
+              <span className={css.contactNumber}>{contact.number}:</span>
             </a>
             <button
               className={css.button}

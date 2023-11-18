@@ -19,7 +19,7 @@ const exampleConacts = [
     number: '+380-44-256-67-25',
   },
   { id: 'id-14', name: 'Macky Sall', number: '+221-33-839-50-50' },
-  { id: 'id-15', name: 'Recep Tayyip Erdoğan', number: '+90-312-417-05-30' },
+  { id: 'id-15', name: 'Tayyip Erdoğan', number: '+90-312-417-05-30' },
   { id: 'id-16', name: 'Jacinda Ardern', number: '+64-4-817-9999' },
 ];
 

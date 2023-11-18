@@ -69,10 +69,13 @@ export const ContactList = () => {
             )}
 
             <a className={css.link} href={`tel:${contact.number}`}>
-              {contact.name}: {contact.number}
+              <span>
+                <b>{contact.name}</b>:
+              </span>
+              <span>{contact.number}:</span>
             </a>
             <button
-              className={css.button}
+              className={`${css.button} ${css.buttonDelete}`}
               onClick={() => handleDeleteContact(contact.name, contact.id)}
               title={`Delete contact "${contact.name}"`}
             >
