@@ -18,7 +18,7 @@ export const ContactList = () => {
   const favorites = useSelector(state => state.contactsStore.favoriteContacts);
 
   const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter)
+    contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   const filteredAndSortedContacts = [...filteredContacts].sort((a, b) =>

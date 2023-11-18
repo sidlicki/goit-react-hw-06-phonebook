@@ -15,7 +15,7 @@ export const FavoriteList = () => {
   const favorites = useSelector(state => state.contactsStore.favoriteContacts);
 
   const filteredContacts = favorites.filter(contact =>
-    contact.name.toLowerCase().includes(filter)
+    contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   const handleDeleteContact = (name, id) => {
